@@ -31,7 +31,7 @@ object Main {
   case object Name {
     // The minimum number of times that name needs to appear in a given year's census data
     // in order for it to be taken into consideration.
-    final val MIN_USAGES = 100
+    final val MIN_USAGES = 250
 
     // The algorithm itself is 'pretty good'. Its by no means perfect. And keep in
     // mind that its only attempting to identify possible candidates. There will certainly

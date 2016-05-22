@@ -36,7 +36,7 @@ object Main {
     // The algorithm itself is 'pretty good'. Its by no means perfect. And keep in
     // mind that its only attempting to identify possible candidates. There will certainly
     // be plenty of names output that would not work well at all.
-    // However, I might argume worse is better for this particular purpose.
+    // However, I might argue worse is better for this particular purpose.
     def isJapanese(name: String): Boolean = name.length() match {
       case len if len >= 3 && syllabary.contains(name.take(3)) => isJapanese(name.drop(3))
       case len if len >= 2 && syllabary.contains(name.take(2)) => isJapanese(name.drop(2))
@@ -58,7 +58,7 @@ object Main {
         case Success(n) if n.isCandidate => Some(n)
         case _ => None
       }
-    }.groupBy(_.name).mapValues(_.reduceLeft(_ + _)).values.toList.sortBy(_.usages)
+    }.groupBy(_.name).mapValues(_.reduce(_ + _)).values.toList.sortBy(_.usages)
 
     // Dump the list to a file.
     new PrintWriter("names.txt") {

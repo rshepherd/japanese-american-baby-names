@@ -33,10 +33,9 @@ object Main {
     // in order for it to be taken into consideration.
     final val MIN_USAGES = 250
 
-    // The algorithm itself is 'pretty good'. Its by no means perfect. And keep in
-    // mind that its only attempting to identify possible candidates. There will certainly
-    // be plenty of names output that would not work well at all.
-    // However, I might argue worse is better for this particular purpose.
+    // The algorithm itself is 'pretty good'. Keep in mind that its only attempting to identify 
+    // possible candidates. There will certainly be names output that would not work well.
+    // However, worse is better for this particular purpose.
     def isJapanese(name: String): Boolean = name.length() match {
       case len if len >= 3 && syllabary.contains(name.take(3)) => isJapanese(name.drop(3))
       case len if len >= 2 && syllabary.contains(name.take(2)) => isJapanese(name.drop(2))
@@ -45,8 +44,8 @@ object Main {
     }
   }
 
-  // The approach is certainly not intended to be efficient, since the size of the data is
-  // fairly modest. This program will run over 135 years worth of data in a couple seconds.
+  // The approach is not intended to be particularly efficient, since the size of the data is
+  // modest. This program will run over 135 years worth of data in a couple seconds.
 
   def main(args: Array[String]) {
     // Extract all the names that are phonetically valid in Japanese
